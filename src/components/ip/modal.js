@@ -2,7 +2,7 @@
  * Created by kyle on 17-8-2.
  */
 import React, {PropTypes} from "react";
-import {Form, Radio, Modal, Select, Button, Spin} from "antd";
+import {Form, Input, Modal, Select, Button, Spin} from "antd";
 import IP from './ip'
 const FormItem = Form.Item
 
@@ -54,14 +54,8 @@ const modal = ({
 
   }
 
-
-
-
-
   function handleOk() {
-    dataAdopter((v) => {
-      onOk(v)
-    })
+
   }
 
 
@@ -69,6 +63,19 @@ const modal = ({
 
     <Modal {...modalOpts}>
       <Form horizontal>
+        <FormItem {...formItemLayout}
+          label={'服务器'}
+        >
+          {getFieldDecorator('service', {
+            initialValue:  undefined,
+            rules: [
+              {
+                required: true,
+                message: '不能为空',
+              },
+            ],
+          })(<Input/>)}
+        </FormItem>
         <IP/>
       </Form>
     </Modal>

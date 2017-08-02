@@ -14,7 +14,14 @@ function IP({dispatch, ip }) {
   }
   return (
     <div className={styles.normal}>
-      <Button type="primary">添加</Button>
+      <Button type="primary"
+        onClick={()=>{
+          dispatch({
+            type: 'ip/save',
+            payload:{ modalVisible: true }
+          })
+        }}
+      >添加</Button>
       <br/><br/>
       <List {...ListProps}/>
       <Modal {...ModalProps}/>
