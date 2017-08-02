@@ -17,6 +17,7 @@ const ip = ({
   form, values = {},
   type = 'create',
   visible = true,
+  ipList=[],
 }) => {
   const {
     getFieldDecorator,
@@ -56,7 +57,9 @@ const ip = ({
                   message: '不能为空',
                 },
               ],
-            })(<Input/>)}
+            })(<Select>
+              {ipList.map((v,k)=><Select.Option key={v}>{v}</Select.Option>)}
+            </Select>)}
           </FormItem>
         </Col>
       </Row>

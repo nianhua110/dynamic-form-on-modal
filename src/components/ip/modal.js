@@ -2,8 +2,8 @@
  * Created by kyle on 17-8-2.
  */
 import React, {PropTypes} from "react";
-import {Form, Input, Modal, Select, Button, Spin} from "antd";
-import IP from './ip'
+import {Form, Modal, Select} from "antd";
+import IP from "./ip";
 const FormItem = Form.Item
 
 const formItemLayout = {
@@ -15,27 +15,15 @@ const formItemLayout = {
   },
 }
 const modal = ({
-  currentRelationships,
-  permitRelationships,
-  entity = {},
-  groups = [],
-  entities = [],
   visible,
   type,
   values = {},
   onOk,
   onCancel,
-  onSubjectChanged,
-  onPreview,
   form,
-  update,
-  userGroups = [],
-  processTypes,
-  currentProcessType,
-  formulaVisible,
-  controlStrategy,
-  rowControlStrategyTab,
-  colHasValue,
+  changeService,
+  servicesList = [],
+  ipList=[],
 }) => {
   const {
     getFieldDecorator,
@@ -58,25 +46,36 @@ const modal = ({
 
   }
 
+  function changeHandle(k) {
+    changeService(k)
+  }
+
+  const IPProps={
+    ipList: ipList,
+  }
 
   return (
 
     <Modal {...modalOpts}>
       <Form horizontal>
         <FormItem {...formItemLayout}
-          label={'服务器'}
+                  label={'服务器'}
         >
           {getFieldDecorator('service', {
-            initialValue:  undefined,
+            initialValue: undefined,
             rules: [
               {
                 required: true,
                 message: '不能为空',
               },
             ],
-          })(<Input/>)}
+          })(<Select
+            onChange={changeHandle}
+          >
+            {servicesList.map((v, k) => <Select.Option key={v.id}>{v.name}</Select.Option>)}
+          </Select>)}
         </FormItem>
-        <IP/>
+        <IP {...IPProps}/>
       </Form>
     </Modal>
 
