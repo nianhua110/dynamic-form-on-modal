@@ -40,9 +40,9 @@ const ip = ({
     formItemLayout,
     form,
     render: (k, id) => (<div key={k}>
-      <Row type="flex" justify="center" gutter={12}>
+      <Row type="flex" justify="start" gutter={12}>
         <Col span={3}>
-          { id == 0 ? <span className="ant-form-item-required">IP:</span> : ''}
+          <span className="ant-form-item-required">IP:</span>
         </Col>
         <Col span={7}
         >
