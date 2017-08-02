@@ -60,8 +60,11 @@
 
 # 运行
  ```
+
+ git clone https://github.com/nianhua110/dynamic-form-on-modal.git
  npm install
  npm start
+
  ```
 浏览器访问 [localhost:8000/#/ip](http://localhost:8000/#/ip)
 
