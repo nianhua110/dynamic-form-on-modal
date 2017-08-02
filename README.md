@@ -7,9 +7,9 @@
  的信息。但是当用户点击新建按钮时候，你又希望这个Modal清空不包含任何信息。
 
 # 目前的解决方案
-[异步请求回来后Modal多次闪现等问题 #916](https://github.com/dvajs/dva/issues/916)
-上面给出的方案是创建一个新的Modal管理，我尝试了一下没成功，而且代码也变得复杂了。
-我们想尽可能少的更改代码。于是提出了一个新的思路
+- [异步请求回来后Modal多次闪现等问题 #916](https://github.com/dvajs/dva/issues/916)
+- 上面给出的方案是创建一个新的Modal管理，我尝试了一下没成功，而且代码也变得复杂了。
+- 我们想尽可能少的更改代码。于是提出了一个新的思路
 # 新建的时候改Key,编辑的时候不改Key
 阿里给的参考例子中Modal在Layout中都是通过函数加载的如
 
@@ -52,3 +52,5 @@
 
 # 进程
 代码未更新完
+#源代码地址
+[kyle的github](https://github.com/nianhua110/dynamic-form-on-modal)
