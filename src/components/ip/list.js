@@ -8,7 +8,6 @@ import styles from "./list.less";
 function list({
   loading,
   dataSource,
-  pagination,
   onPageChange,
   onDelete,
   onEdit,
@@ -21,11 +20,21 @@ function list({
     [
       {
         key: 'ip',
-        dataIndex: 'ip'
+        dataIndex: 'ip',
+        title: 'IP'
       },
       {
         key:'company',
-        dataInex: 'company'
+        dataIndex: 'company',
+        title:'公司'
+      },
+      {
+        key:'service',
+        dataInex: 'servie',
+        title:'服务器',
+        render:(text, record, index)=><div>{
+          record && record.services ?record.services.reduce((a,b)=>a+','+b):''
+        }</div>
       },
       {
         key: 'operate',
