@@ -57,8 +57,5 @@
  - 无论点击编辑还是新建弹出一个Modal，里面可以选择服务器,
  - 当你选择好服务器之后，在Modal不消失的情况下，选择可用的IP列表供用户选择。
 
-# 进程
-代码未更新完
-
 # 源代码地址
 [kyle的github](https://github.com/nianhua110/dynamic-form-on-modal)
