@@ -19,21 +19,16 @@ function list({
 
     [
       {
-        key: 'ip',
-        dataIndex: 'ip',
-        title: 'IP'
+        key: 'service',
+        dataIndex: 'service',
+        title: '服务器'
       },
       {
-        key:'company',
-        dataIndex: 'company',
-        title:'公司'
-      },
-      {
-        key:'service',
-        dataInex: 'servie',
-        title:'服务器',
+        key:'ips',
+        dataInex: 'ips',
+        title:'IP',
         render:(text, record, index)=><div>{
-          record && record.services ?record.services.reduce((a,b)=>a+','+b):''
+          record && record.ips ?record.ips.reduce((a,b)=>a+',  '+b):''
         }</div>
       },
       {

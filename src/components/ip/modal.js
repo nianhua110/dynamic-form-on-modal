@@ -24,6 +24,7 @@ const modal = ({
   changeService,
   servicesList = [],
   ipList=[],
+  dynamicKey,
 }) => {
   const {
     getFieldDecorator,
@@ -52,6 +53,7 @@ const modal = ({
 
   const IPProps={
     ipList: ipList,
+    values
   }
 
   return (
@@ -62,7 +64,7 @@ const modal = ({
                   label={'服务器'}
         >
           {getFieldDecorator('service', {
-            initialValue: undefined,
+            initialValue: values.servicesId ? `${values.servicesId}` : undefined,
             rules: [
               {
                 required: true,
@@ -75,7 +77,7 @@ const modal = ({
             {servicesList.map((v, k) => <Select.Option key={v.id}>{v.name}</Select.Option>)}
           </Select>)}
         </FormItem>
-        <IP {...IPProps}/>
+        <IP {...IPProps} key={dynamicKey}/>
       </Form>
     </Modal>
 

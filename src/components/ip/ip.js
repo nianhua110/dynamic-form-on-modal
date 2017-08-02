@@ -50,7 +50,7 @@ const ip = ({
           <FormItem
           >
             {getFieldDecorator('attributeCode' + k, {
-              initialValue: valuesMap[k] ? `${valuesMap[k].ip}` : undefined,
+              initialValue: valuesMap[k] ? `${valuesMap[k]}` : undefined,
               rules: [
                 {
                   required: true,

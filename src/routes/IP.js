@@ -6,10 +6,16 @@ import Modal from "../components/ip/modal";
 import List from "../components/ip/list";
 function IP({dispatch, ip}) {
   const ModalProps = {
+    values: ip.curItem,
     visible: ip.modalVisible,
     servicesList: ip.servicesList,
     ipList: ip.ipList,
+    dynamicKey: ip.dynamicKey,
     changeService: (data) => {
+      dispatch({
+        type: 'ip/save',
+        payload: { dynamicKey : Math.random(), curItem:{} }
+      })
       dispatch({
         type: 'ip/fetchIpList',
         payload: data,
@@ -28,7 +34,7 @@ function IP({dispatch, ip}) {
     onEdit:(item)=>{
       dispatch({
         type: 'ip/showModal',
-        payload: {modalVisible: true, type: 'edit', curItem: {...item}}
+        payload: {modalVisible: true, type: 'edit', curItem: {...item}, modalKey: Math.random()}
       })
     }
   }
@@ -38,13 +44,13 @@ function IP({dispatch, ip}) {
               onClick={() => {
                 dispatch({
                   type: 'ip/showModal',
-                  payload: {modalVisible: true, type: 'create', curItem: {}}
+                  payload: {modalVisible: true, type: 'create', curItem: {}, modalKey: Math.random()}
                 })
               }}
       >添加</Button>
       <br/><br/>
       <List {...ListProps}/>
-      <Modal {...ModalProps}/>
+      <Modal {...ModalProps} key={ip.modalKey}/>
     </div>
   );
 }

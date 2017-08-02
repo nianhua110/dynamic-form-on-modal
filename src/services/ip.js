@@ -4,5 +4,5 @@ export async function query() {
   return request('/api/ip');
 }
 export async function queryIpsByService(id) {
-  return request('/api/ip/list?id='+id);
+  return request('/api/ip/list/'+id);
 }

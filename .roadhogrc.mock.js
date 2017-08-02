@@ -14,36 +14,34 @@ export default {
       ],
       table: [
         {
-          id: 1,
-          ip: '10.1.1.2',
-          company: 'HK',
-          services: [
-            's1',
-            's2',
-            's4',
-          ]
+          id: 2,
+          ips:  [
+            '2.2.2.3',
+            '2.2.2.7',
+          ],
+          service:"亚洲",
+          servicesId: 2
         }
       ]
     })
   },
-  "/api/ip/list": (req, res) => {
+  "/api/ip/list/1": (req, res) => {
     console.log(req.query.id);
-    if(req.query.id === `2`){
-      res.json({
-        ipList: [
-          "2.2.2.3",
-          "2.2.2.4",
-          "2.2.2.5",
-          "2.2.2.6",
-          "2.2.2.7",
-        ]
-      })
-      return;
-    }
     res.json({
       ipList: [
         "10.1.1.2",
         "10.2.2.4"
+      ]
+    })
+  },
+  "/api/ip/list/2": (req, res) => {
+    res.json({
+      ipList: [
+        "2.2.2.3",
+        "2.2.2.4",
+        "2.2.2.5",
+        "2.2.2.6",
+        "2.2.2.7",
       ]
     })
   }
