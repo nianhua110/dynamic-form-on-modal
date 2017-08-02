@@ -39,7 +39,7 @@ const modal = ({
     onOk: handleOk,
     onCancel,
     wrapClassName: 'vertical-center-modal',
-    width: 800,
+    width: 600,
 
   }
 

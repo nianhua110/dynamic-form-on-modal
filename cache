@@ -1,0 +1,7 @@
+  "proxy":{
+    "/api": {
+    "target": "http://http://nianhua110.github.io/api/dynamic/form/on/modal/",
+    "changeOrigin": true,
+    "pathRewrite": { "^/api" : "" }
+    }
+  }
